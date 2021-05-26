@@ -12,7 +12,7 @@ namespace WheresMyPar.DataAccess
     {
         const string ConnectionString = "Server=localhost;Database=WheresMyPar;Trusted_Connection=True;";
 
-        //gets all users
+        //gets all users courses
         public List<UserCourse> GetAll()
         {
             using var db = new SqlConnection(ConnectionString);
