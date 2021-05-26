@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WheresMyPar.Models;
 using WheresMyPar.DataAccess;
 
 namespace WheresMyPar.Controllers
@@ -28,7 +27,7 @@ namespace WheresMyPar.Controllers
         //GET to /api/Users/{id}
         //GET to /api/Users/1
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetUserById(int id)
         {
             var user = _repo.Get(id);
             if (user == null)

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WheresMyPar.DataAccess;
 
 namespace WheresMyPar.Controllers
 {
@@ -11,5 +12,29 @@ namespace WheresMyPar.Controllers
     [ApiController]
     public class UserCourseScoresController : ControllerBase
     {
+        UserCourseScoreRepository _repo;
+        public UserCourseScoresController()
+        {
+            _repo = new UserCourseScoreRepository();
+        }
+
+        [HttpGet]
+        public IActionResult GetAllUsersCourseScores()
+        {
+            return Ok(_repo.GetAll());
+        }
+
+        //GET to /api/UserCourseScores/{id}
+        //GET to /api/UserCourseScores/1
+        [HttpGet("{id}")]
+        public IActionResult GetUserCourseScoresById(int id)
+        {
+            var user = _repo.Get(id);
+            if (user == null)
+            {
+                return NotFound("This user does not have any course scores");
+            }
+            return Ok(user);
+        }
     }
 }
