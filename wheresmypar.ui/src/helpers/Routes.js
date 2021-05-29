@@ -13,17 +13,17 @@ import ScoresSingleCourse from '../views/ScoresSingleCourse';
 
 export default function Routes() {
   return (
-        <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/course-details/:id" component={CourseDetails} />
-            <Route exact path="/favorite-courses" component={FavoriteCourses} />
-            <Route exact path="/find-courses" component={FindCourses} />
-            <Route exact path="/games-played" component={GamesPlayed} />
-            <Route exact path="/new-game" component={NewGame} />
-            <Route exact path="/not-found" component={NotFound} />
-            <Route exact path="/review" component={Review} />
-            <Route exact path="/scores/:id" component={ScoresSingleCourse} />
-        </Switch>
+    <Switch>
+      <Route exact path='/' component={Home} />
+      <Route exact path='/course-details/:id' component={CourseDetails} />
+      <Route exact path='/favorite-courses' component={FavoriteCourses} />
+      <Route exact path='/find-courses' component={FindCourses} />
+      <Route exact path='/games-played' component={GamesPlayed} />
+      <Route exact path='/new-game' component={NewGame} />
+      <Route exact path='/not-found' component={NotFound} />
+      <Route exact path='/review' component={Review} />
+      <Route exact path='/scores/:id' component={ScoresSingleCourse} />
+    </Switch>
   );
 }
 

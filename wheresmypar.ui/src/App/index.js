@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 // import fbConnection from '../helpers/data/fbConnection';
 import './App.scss';
 
@@ -10,15 +10,15 @@ import Routes from '../helpers/Routes';
 export default class App extends React.Component {
   state = {
     user: null,
-  }
+  };
 
   render() {
     return (
-      <div className="App">
-        <Router>
-          <Navbar/>
-          <Routes/>
-        </Router>
+      <div className='App'>
+        <BrowserRouter>
+          <Navbar />
+          <Routes />
+        </BrowserRouter>
       </div>
     );
   }

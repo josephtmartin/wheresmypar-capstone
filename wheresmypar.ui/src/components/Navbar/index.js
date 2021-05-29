@@ -8,7 +8,8 @@ import {
   NavItem,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import SearchInput from '../SearchInput';
+
+// import SearchInput from '../SearchInput';
 
 // pass user as parameter when user auth is setup
 export default class MyNavbar extends React.Component {
@@ -41,7 +42,7 @@ export default class MyNavbar extends React.Component {
             </NavItem>
           </Nav>
           <p className='mr-2 mt-3 text-light'>Search:</p>
-            <SearchInput />
+            {/* <SearchInput /> */}
         </Collapse>
       </Navbar>
     </div>
