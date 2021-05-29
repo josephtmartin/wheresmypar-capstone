@@ -9,6 +9,8 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import brandLogo from '../../images/disc-golf-logo.png';
+
 // import SearchInput from '../SearchInput';
 
 // pass user as parameter when user auth is setup
@@ -24,15 +26,15 @@ export default class MyNavbar extends React.Component {
   render() {
     return (
     <div>
-      <Navbar color="dark" expand="lg">
-        <NavbarBrand className='gradient-text'>
-          <Link to='/' className='nav-link' href='#'>Wheres My Par?</Link>
+      <Navbar className='navbar' expand="lg">
+        <NavbarBrand className='gradient-text m-0 p-0'>
+          <Link style={{ padding: '8px' }} to='/' className='nav-link' href='#'><img style={{ width: '50px' }} src={brandLogo}/></Link>
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} className='custom-toggler'/>
         <Collapse isOpen={this.isOpen} navbar>
           <Nav className="link-container mr-auto" navbar>
             <NavItem>
-                <Link to='/find-courses' className="nav-link m-2" href="#">Find Courses</Link>
+                <Link to='/find-courses' className="nav-link m-2" activeClassName='selected' href="#">Find Courses</Link>
             </NavItem>
             <NavItem>
               <Link to='/favorite-courses' className="nav-link m-2" href="#">Favorite Courses</Link>
