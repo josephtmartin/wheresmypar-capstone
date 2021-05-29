@@ -1,11 +1,12 @@
 import React from 'react';
+import TypingEffect from '../components/TypingEffect';
 
 export default class Home extends React.Component {
   render() {
     return (
-      <>
-        <h2>Home Page</h2>
-      </>
+      <div className='home-container'>
+        <TypingEffect />
+      </div>
     );
   }
 }
