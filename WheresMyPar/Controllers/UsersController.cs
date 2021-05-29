@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WheresMyPar.DataAccess;
+using WheresMyPar.Models;
 
 namespace WheresMyPar.Controllers
 {
@@ -47,6 +48,14 @@ namespace WheresMyPar.Controllers
                 return NotFound("This user id does not exist");
             }
             return Ok(user);
+        }
+
+        //POST to /api/Users
+        [HttpPost]
+        public IActionResult AddAUser(User user)
+        {
+            _repo.Add(user);
+            return Created($"api/Users/{user.id}", user);
         }
     }
 }

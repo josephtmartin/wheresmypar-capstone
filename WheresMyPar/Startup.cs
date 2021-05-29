@@ -51,6 +51,7 @@ namespace WheresMyPar
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             }
 
             app.UseHttpsRedirection();

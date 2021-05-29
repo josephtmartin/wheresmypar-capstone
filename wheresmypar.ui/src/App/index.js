@@ -33,11 +33,12 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { user } = this.state;
     return (
       <div className='App'>
         <BrowserRouter>
-          <Navbar />
-          <Routes />
+          <Navbar user={user}/>
+          <Routes user={user}/>
         </BrowserRouter>
       </div>
     );

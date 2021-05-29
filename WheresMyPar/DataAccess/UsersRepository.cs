@@ -52,6 +52,20 @@ namespace WheresMyPar.DataAccess
             return singleUser;
         }
 
+        //Adds a user
+        public void Add(User user)
+        {
+            var sql = @"INSERT INTO [dbo].[Users] ([fb_uid])
+                        OUTPUT inserted.id
+                        VALUES(@fb_uid)";
+
+            using var db = new SqlConnection(ConnectionString);
+
+            var id = db.ExecuteScalar<int>(sql, user);
+
+            user.id = id;
+        }
+
 
 
     }

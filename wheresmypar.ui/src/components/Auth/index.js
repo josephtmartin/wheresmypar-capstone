@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import firebase from 'firebase';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { baseUrl } from '../helpers/config.json';
+import { baseUrl } from '../../helpers/config.json';
 
 export default class Auth extends Component {
   loginClickEvent = (e) => {
     e.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then((cred) => {
-      const user = cred.additionalUserInfo.profile;
+      // const user = cred.additionalUserInfo.profile;
       if (cred.additionalUserInfo.isNewUser) {
         const userInfo = {
           fb_uid: cred.user.uid
