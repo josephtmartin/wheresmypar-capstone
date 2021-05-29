@@ -50,17 +50,12 @@ export default class MyNavbar extends React.Component {
             <NavItem>
               <Link to='/games-played' className="nav-link m-2" href="#">Games Played</Link>
             </NavItem>
-            <NavItem>
-              <Auth user={user}/>
-            </NavItem>
           </Nav>
           <p className='mr-2 mt-3 text-light'>Search:</p>
             {/* <SearchInput /> */}
             <NavbarText>
             <div className="form-inline my-2 my-lg-0">
-                {user && (
-                  <button className="nav-link btn btn-outline-primary" onClick={this.logoutClickEvent}>Logout</button>
-                )}
+                {user ? <Link to='null' className="nav-link m-2" href="#" onClick={this.logoutClickEvent}>Logout</Link> : <Auth user={user}/>}
             </div>
           </NavbarText>
         </Collapse>
