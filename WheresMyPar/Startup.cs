@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,14 +33,14 @@ namespace WheresMyPar
                 .AddJwtBearer(options =>
                 {
                     options.IncludeErrorDetails = true;
-                    options.Authority = "https://securetoken.google.com/diaper-jungle";
+                    options.Authority = "https://securetoken.google.com/wheresmypar";
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateLifetime = true,
                         ValidateAudience = true,
                         ValidateIssuer = true,
-                        ValidAudience = "diaper-jungle",
-                        ValidIssuer = "https://securetoken.google.com/diaper-jungle"
+                        ValidAudience = "wheresmypar",
+                        ValidIssuer = "https://securetoken.google.com/wheresmypar"
                     };
                 });
         }
@@ -55,6 +56,8 @@ namespace WheresMyPar
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
