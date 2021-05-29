@@ -1,5 +1,4 @@
 import React from 'react';
-// import firebase from 'firebase/app';
 import {
   Collapse,
   Navbar,
@@ -7,7 +6,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavbarText,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import SearchInput from '../SearchInput';
@@ -41,19 +39,9 @@ export default class MyNavbar extends React.Component {
             <NavItem>
               <Link to='/games-played' className="nav-link m-2" href="#">Games Played</Link>
             </NavItem>
-            {/* <NavItem>
-                <Auth user={user}/>
-            </NavItem> */}
           </Nav>
           <p className='mr-2 mt-3 text-light'>Search:</p>
             <SearchInput />
-          <NavbarText>
-            {/* <div className="form-inline my-2 my-lg-0">
-                {user && (
-                  <button className="nav-link btn btn-outline-primary" onClick={this.logoutClickEvent}>Logout</button>
-                )}
-            </div> */}
-          </NavbarText>
         </Collapse>
       </Navbar>
     </div>
