@@ -3,5 +3,19 @@
 @import 'variables';
 
 body {
-  background-color: $favColor;
+  background-image: url(../images/disc-golf-background-image.jpg);
+  min-height: 100%;
+  min-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-link {
+  color: white;
 }
