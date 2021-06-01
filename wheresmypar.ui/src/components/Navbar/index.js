@@ -46,7 +46,6 @@ export default class MyNavbar extends React.Component {
                 <Link
                   to='/find-courses'
                   className='nav-link m-2'
-                  activeClassName='selected'
                   href='#'
                 >
                   Find Courses
