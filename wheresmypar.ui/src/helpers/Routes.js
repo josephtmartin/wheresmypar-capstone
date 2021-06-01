@@ -10,6 +10,7 @@ import NewGame from '../views/NewGame';
 import NotFound from '../views/NotFound';
 import Review from '../views/Review';
 import ScoresSingleCourse from '../views/ScoresSingleCourse';
+import SearchResults from '../views/SearchResults';
 
 export default function Routes() {
   return (
@@ -23,6 +24,7 @@ export default function Routes() {
       <Route exact path='/not-found' component={NotFound} />
       <Route exact path='/review' component={Review} />
       <Route exact path='/scores/:id' component={ScoresSingleCourse} />
+      <Route exact path='/search/:term' component={(props) => <SearchResults {...props}/>} />
     </Switch>
   );
 }

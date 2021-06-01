@@ -21,12 +21,13 @@
     "allowTemplateLiterals": true
   },
   "rules": {
-    "no-console": [1, { "allow": ["error", "warn"] }],
+    "no-console": [1, { "allow": ["error", "log"] }],
     "comma-dangle": ["error", "only-multiline"],
     "no-debugger": 1,
     "class-methods-use-this": 0,
     "linebreak-style": 0,
     "max-len": [1,600,2],
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "no-plusplus": "off"
   }
 }
