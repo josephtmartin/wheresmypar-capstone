@@ -17,4 +17,10 @@ const createUserCoursesFavorites = (userId, courseId) => new Promise((resolve, r
     .catch((error) => reject(error));
 });
 
-export default { createUserCoursesFavorites };
+const getUserCoursesFavorites = (userId) => new Promise((resolve, reject) => {
+  axios.get(`${userCoursesUrl}/${userId}`).then((response) => {
+    resolve(response.data);
+  }).catch((error) => reject(error));
+});
+
+export default { createUserCoursesFavorites, getUserCoursesFavorites };

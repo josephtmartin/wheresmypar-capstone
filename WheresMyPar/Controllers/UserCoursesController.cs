@@ -30,7 +30,7 @@ namespace WheresMyPar.Controllers
         [HttpGet("{id}")]
         public IActionResult GetUserCourseById(int id)
         {
-            var user = _repo.Get(id);
+            var user = _repo.GetUserCourses(id);
             if (user == null)
             {
                 return NotFound("This user does not have any courses");

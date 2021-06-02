@@ -24,18 +24,18 @@ namespace WheresMyPar.DataAccess
             return results;
         }
 
-        //gets a single user course
-        public UserCourse Get(int id)
+        //gets a single user course table
+        public List<UserCourse> GetUserCourses(int user_id)
         {
             var sql = @"SELECT *
                         FROM UserCourse
-                        WHERE id = @id";
+                        WHERE user_id = @user_id";
 
             using var db = new SqlConnection(ConnectionString);
 
-            var singleUserCourse = db.QueryFirstOrDefault<UserCourse>(sql, new { id = id });
+            var singleUserCourses = db.Query<UserCourse>(sql, new { user_id = user_id }).ToList();
 
-            return singleUserCourse;
+            return singleUserCourses;
         }
 
         public void AddFavorite(UserCourse userCourse)

@@ -18,7 +18,7 @@ export default function Routes({ dbUser }) {
     <Switch>
       <Route exact path='/' component={Home} />
       <Route exact path='/course-details/:id' component={(props) => <CourseDetails dbUser={dbUser} {...props} />}/>
-      <Route exact path='/favorite-courses' component={FavoriteCourses} />
+      <Route exact path='/favorite-courses' component={(props) => <FavoriteCourses dbUser={dbUser} {...props} />}/>
       <Route exact path='/find-courses' component={FindCourses} />
       <Route exact path='/games-played' component={GamesPlayed} />
       <Route exact path='/new-game/:id' component={NewGame} />
