@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import courseData from '../helpers/data/courseData';
+import userCoursesData from '../helpers/data/userCoursesData';
 
 export default class CourseDetails extends React.Component {
   state = {
@@ -20,9 +21,11 @@ export default class CourseDetails extends React.Component {
     });
   };
 
-  addToFavorites = (e, courseId) => {
-    console.warn(e.target.id, courseId, 'addToFavorites');
-  }
+  addToFavorites = () => {
+    const { dbUser } = this.props;
+    const courseId = parseInt(this.props.match.params.id, 10);
+    userCoursesData.createUserCoursesFavorites(dbUser.id, courseId);
+  };
 
   render() {
     const { course } = this.state;
@@ -42,7 +45,8 @@ export default class CourseDetails extends React.Component {
               <button
                 className='btn btn-success m-2'
                 id={course.id}
-                onClick={(e) => this.addToFavorites(e, course.id)}>
+                onClick={() => this.addToFavorites()}
+              >
                 Add To Favorites
               </button>
               <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>

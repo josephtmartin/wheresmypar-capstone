@@ -8,7 +8,7 @@ namespace WheresMyPar.Models
     public class UserCourseScore
     {
         public int id { get; set; }
-        public string place_id { get; set; }
+        public int course_id { get; set; }
         public DateTime date_played { get; set; }
         public int score { get; set; }
     }

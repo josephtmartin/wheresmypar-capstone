@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WheresMyPar.DataAccess;
+using WheresMyPar.Models;
 
 namespace WheresMyPar.Controllers
 {
@@ -35,6 +36,13 @@ namespace WheresMyPar.Controllers
                 return NotFound("This user does not have any courses");
             }
             return Ok(user);
+        }
+
+        [HttpPost]
+        public IActionResult AddAFavorite(UserCourse userCourse)
+        {
+            _repo.AddFavorite(userCourse);
+            return Created($"api/UserCourses/{userCourse.id}", userCourse);
         }
     }
 }

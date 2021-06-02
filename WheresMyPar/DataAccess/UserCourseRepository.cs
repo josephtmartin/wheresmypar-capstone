@@ -38,8 +38,17 @@ namespace WheresMyPar.DataAccess
             return singleUserCourse;
         }
 
-        
+        public void AddFavorite(UserCourse userCourse)
+        {
+            var sql = @"INSERT INTO [dbo].[UserCourse] ([user_id], [course_id], [is_favorite])
+                        OUTPUT inserted.id
+                        VALUES(@user_id, @course_id, @is_favorite)";
 
+            using var db = new SqlConnection(ConnectionString);
 
+            var id = db.ExecuteScalar<int>(sql, userCourse);
+
+            userCourse.id = id;
+        }
     }
 }
