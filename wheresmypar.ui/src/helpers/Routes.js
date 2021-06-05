@@ -23,7 +23,7 @@ export default function Routes({ dbUser }) {
       <Route exact path='/games-played' component={GamesPlayed} />
       <Route exact path='/new-game/:id' component={NewGame} />
       <Route exact path='/not-found' component={NotFound} />
-      <Route exact path='/review' component={Review} />
+      <Route exact path='/review/:id' component={(props) => <Review dbUser={dbUser} {...props} />}/>
       <Route exact path='/view-reviews/:id' component={ViewReviews} />
       <Route exact path='/scores/:id' component={ScoresSingleCourse} />
       <Route exact path='/search/:term' component={(props) => <SearchResults {...props}/>} />
