@@ -38,7 +38,18 @@ namespace WheresMyPar.DataAccess
             return singleUserCourseScore;
         }
 
+        public void AddScore(UserCourseScore userCourseScore)
+        {
+            var sql = @"INSERT INTO [dbo].[UserCourseScore] ([user_id], [course_id], [date_played], [score])
+                        OUTPUT inserted.id
+                        VALUES(@user_id, @course_id, CURRENT_TIMESTAMP, @score)";
 
+            using var db = new SqlConnection(ConnectionString);
+
+            var id = db.ExecuteScalar<int>(sql, userCourseScore);
+
+            userCourseScore.id = id;
+        }
 
 
     }
