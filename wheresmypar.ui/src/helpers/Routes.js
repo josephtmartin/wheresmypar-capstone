@@ -13,12 +13,12 @@ import ViewReviews from '../views/ViewReviews';
 import ScoresSingleCourse from '../views/ScoresSingleCourse';
 import SearchResults from '../views/SearchResults';
 
-export default function Routes() {
+export default function Routes({ dbUser }) {
   return (
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route exact path='/course-details/:id' component={CourseDetails} />
-      <Route exact path='/favorite-courses' component={FavoriteCourses} />
+      <Route exact path='/course-details/:id' component={(props) => <CourseDetails dbUser={dbUser} {...props} />}/>
+      <Route exact path='/favorite-courses' component={(props) => <FavoriteCourses dbUser={dbUser} {...props} />}/>
       <Route exact path='/find-courses' component={FindCourses} />
       <Route exact path='/games-played' component={GamesPlayed} />
       <Route exact path='/new-game/:id' component={NewGame} />

@@ -1,15 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import courseData from '../helpers/data/courseData';
+import userCoursesData from '../helpers/data/userCoursesData';
 
 export default class CourseDetails extends React.Component {
   state = {
     course: {},
+    isFavorite: false,
   };
 
   componentDidMount() {
+    const { dbUser } = this.props;
     const courseId = this.props.match.params.id;
     this.getASingleCourse(courseId);
+    this.checkIfFavorite(dbUser.id);
   }
 
   getASingleCourse = (courseId) => {
@@ -20,12 +24,33 @@ export default class CourseDetails extends React.Component {
     });
   };
 
-  addToFavorites = (e, courseId) => {
-    console.warn(e.target.id, courseId, 'addToFavorites');
+  addToFavorites = () => {
+    const { dbUser } = this.props;
+    const courseId = parseInt(this.props.match.params.id, 10);
+    userCoursesData.createUserCoursesFavorites(dbUser.id, courseId);
+  };
+
+  removeFromFavorites = () => {
+    const courseId = parseInt(this.props.match.params.id, 10);
+    userCoursesData.deleteFromFavorites(courseId);
+    this.setState({
+      isFavorite: false,
+    });
   }
 
+  checkIfFavorite = (userId) => {
+    const courseId = parseInt(this.props.match.params.id, 10);
+    userCoursesData.getUserCoursesFavorites(userId).then((response) => {
+      response.forEach((course) => {
+        if (course.course_id === courseId && course.is_favorite === true) {
+          this.setState({ isFavorite: true });
+        }
+      });
+    });
+  };
+
   render() {
-    const { course } = this.state;
+    const { course, isFavorite } = this.state;
     return (
       <>
         <h2>Course Details Page</h2>
@@ -39,12 +64,23 @@ export default class CourseDetails extends React.Component {
               <Link className='btn btn-primary m-2' to={`/new-game/${course.id}`}>
                 Start A New Game
               </Link>
-              <button
-                className='btn btn-success m-2'
-                id={course.id}
-                onClick={(e) => this.addToFavorites(e, course.id)}>
-                Add To Favorites
-              </button>
+              {isFavorite ? (
+                <button
+                  className='btn btn-danger m-2'
+                  id={course.id}
+                  onClick={() => this.removeFromFavorites()}
+                >
+                  Remove From Favorites
+                </button>
+              ) : (
+                <button
+                  className='btn btn-success m-2'
+                  id={course.id}
+                  onClick={() => this.addToFavorites()}
+                >
+                  Add To Favorites
+                </button>
+              )}
               <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>
                 View Reviews
               </Link>
