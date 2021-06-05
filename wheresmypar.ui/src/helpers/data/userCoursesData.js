@@ -18,9 +18,15 @@ const createUserCoursesFavorites = (userId, courseId) => new Promise((resolve, r
 });
 
 const getUserCoursesFavorites = (userId) => new Promise((resolve, reject) => {
-  axios.get(`${userCoursesUrl}/${userId}`).then((response) => {
+  axios.get(`${userCoursesUrl}/user/${userId}`).then((response) => {
     resolve(response.data);
   }).catch((error) => reject(error));
 });
 
-export default { createUserCoursesFavorites, getUserCoursesFavorites };
+const deleteFromFavorites = (courseId) => new Promise((resolve, reject) => {
+  axios.patch(`${userCoursesUrl}/update/${courseId}`).then((response) => {
+    resolve(response.data);
+  }).catch((error) => reject(error));
+});
+
+export default { createUserCoursesFavorites, getUserCoursesFavorites, deleteFromFavorites };

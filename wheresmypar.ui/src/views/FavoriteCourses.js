@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CourseCard from '../components/Cards/courseCard';
+import FavoritesCourseCard from '../components/Cards/favoritesCourseCard';
 import userCoursesData from '../helpers/data/userCoursesData';
 
 export default class FavoriteCourses extends React.Component {
@@ -15,7 +15,6 @@ export default class FavoriteCourses extends React.Component {
 
   getUserFavoriteCourses = (userId) => {
     userCoursesData.getUserCoursesFavorites(userId).then((response) => {
-      console.warn(response, 'favorites');
       this.setState({
         courses: response,
       });
@@ -25,7 +24,7 @@ export default class FavoriteCourses extends React.Component {
   render() {
     const { courses } = this.state;
 
-    const renderAllCourseCards = () => courses.map((course) => (<CourseCard key={course.id} course={course} />));
+    const renderAllCourseCards = () => courses.map((course) => (<FavoritesCourseCard key={course.course_id} course={course} />));
     return (
       <>
         <h2>Favorite Courses Page</h2>

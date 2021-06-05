@@ -25,17 +25,34 @@ namespace WheresMyPar.DataAccess
         }
 
         //gets a single user course table
-        public List<UserCourse> GetUserCourses(int user_id)
+        public List<DetailedUserCourse> GetUserCourses(int user_id)
         {
-            var sql = @"SELECT *
-                        FROM UserCourse
-                        WHERE user_id = @user_id";
+            var sql = @"SELECT uc.*, c.formatted_address, c.lat, c.lng, c.[name], c.place_id, c. rating, c.user_ratings_total
+                        FROM UserCourse uc
+                         join Courses c
+	                        on uc.course_id = c.id
+                        WHERE user_id = @user_id
+                        AND is_favorite = 1
+                        ORDER BY id desc";
 
             using var db = new SqlConnection(ConnectionString);
 
-            var singleUserCourses = db.Query<UserCourse>(sql, new { user_id = user_id }).ToList();
+            var singleUserCourses = db.Query<DetailedUserCourse>(sql, new { user_id = user_id }).ToList();
 
             return singleUserCourses;
+        }
+
+        public UserCourse Get(int id)
+        {
+            var sql = @"SELECT *
+                        FROM [UserCourse]
+                        WHERE id = @id";
+
+            using var db = new SqlConnection(ConnectionString);
+
+            var singleUserCourse = db.QueryFirstOrDefault<UserCourse>(sql, new { id = id });
+
+            return singleUserCourse;
         }
 
         public void AddFavorite(UserCourse userCourse)
@@ -49,6 +66,17 @@ namespace WheresMyPar.DataAccess
             var id = db.ExecuteScalar<int>(sql, userCourse);
 
             userCourse.id = id;
+        }
+
+        public void DeleteFavorite(UserCourse userCourse)
+        {
+            using var db = new SqlConnection(ConnectionString);
+
+            var sql = @"UPDATE [UserCourse]
+                        SET is_favorite = 0
+                        WHERE id = @id";
+
+            db.Execute(sql, userCourse);
         }
     }
 }
