@@ -13,7 +13,7 @@ import ViewReviews from '../views/ViewReviews';
 import ScoresSingleCourse from '../views/ScoresSingleCourse';
 import SearchResults from '../views/SearchResults';
 
-export default function Routes({ dbUser }) {
+export default function Routes({ dbUser, user }) {
   return (
     <Switch>
       <Route exact path='/' component={Home} />
@@ -21,7 +21,7 @@ export default function Routes({ dbUser }) {
       <Route exact path='/favorite-courses' component={(props) => <FavoriteCourses dbUser={dbUser} {...props} />}/>
       <Route exact path='/find-courses' component={FindCourses} />
       <Route exact path='/games-played' component={GamesPlayed} />
-      <Route exact path='/new-game/:id' component={NewGame} />
+      <Route exact path='/new-game/:id' component={(props) => <NewGame dbUser={dbUser} user={user} {...props} />}/>
       <Route exact path='/not-found' component={NotFound} />
       <Route exact path='/review' component={Review} />
       <Route exact path='/view-reviews/:id' component={ViewReviews} />
