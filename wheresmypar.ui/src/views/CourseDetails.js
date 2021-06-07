@@ -53,7 +53,6 @@ export default class CourseDetails extends React.Component {
     const { course, isFavorite } = this.state;
     return (
       <>
-        <h2>Course Details Page</h2>
         <div className='course-card' style={{ width: '500px' }}>
           <div className='card m-2'>
             <h5 className='card-title'>{course.name}</h5>

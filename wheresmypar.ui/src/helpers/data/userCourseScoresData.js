@@ -16,4 +16,10 @@ const addScores = (userId, courseId, score) => new Promise((resolve, reject) => 
     .catch((error) => reject(error));
 });
 
-export default { addScores };
+const getAllScoresForAUser = (userId) => new Promise((resolve, reject) => {
+  axios.get(`${userCourseScoresUrl}/allscores/${userId}`).then((response) => {
+    resolve(response.data);
+  }).catch((error) => reject(error));
+});
+
+export default { addScores, getAllScoresForAUser };
