@@ -49,6 +49,17 @@ namespace WheresMyPar.Controllers
             return Ok(user);
         }
 
+        [HttpGet("allcoursescores/{user_id}/{course_id}")]
+        public IActionResult GetAUsersScores(int user_id, int course_id)
+        {
+            var user = _repo.GetAllCourseScores(user_id, course_id);
+            if (user == null)
+            {
+                return NotFound("This user does not have any course scores");
+            }
+            return Ok(user);
+        }
+
         [HttpPost]
         public IActionResult AddAScore(UserCourseScore userCourseScore)
         {

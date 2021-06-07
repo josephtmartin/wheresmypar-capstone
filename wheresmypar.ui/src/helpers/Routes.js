@@ -17,16 +17,36 @@ export default function Routes({ dbUser, user }) {
   return (
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route exact path='/course-details/:id' component={(props) => <CourseDetails dbUser={dbUser} {...props} />}/>
-      <Route exact path='/favorite-courses' component={(props) => <FavoriteCourses dbUser={dbUser} user={user} {...props} />}/>
+      <Route
+        exact
+        path='/course-details/:id'
+        component={(props) => <CourseDetails dbUser={dbUser} {...props} />}
+      />
+      <Route
+        exact
+        path='/favorite-courses'
+        component={(props) => <FavoriteCourses dbUser={dbUser} user={user} {...props} />}
+      />
       <Route exact path='/find-courses' component={FindCourses} />
-      <Route exact path='/games-played' component={(props) => <GamesPlayed dbUser={dbUser} user={user} {...props} />}/>
-      <Route exact path='/new-game/:id' component={(props) => <NewGame dbUser={dbUser} user={user} {...props} />}/>
+      <Route
+        exact
+        path='/games-played'
+        component={(props) => <GamesPlayed dbUser={dbUser} user={user} {...props} />}
+      />
+      <Route
+        exact
+        path='/new-game/:id'
+        component={(props) => <NewGame dbUser={dbUser} user={user} {...props} />}
+      />
       <Route exact path='/not-found' component={NotFound} />
       <Route exact path='/review' component={Review} />
       <Route exact path='/view-reviews/:id' component={ViewReviews} />
-      <Route exact path='/scores/:id' component={ScoresSingleCourse} />
-      <Route exact path='/search/:term' component={(props) => <SearchResults {...props}/>} />
+      <Route
+        exact
+        path='/scores/:id'
+        component={(props) => <ScoresSingleCourse dbUser={dbUser} user={user} {...props} />}
+      />
+      <Route exact path='/search/:term' component={(props) => <SearchResults {...props} />} />
     </Switch>
   );
 }

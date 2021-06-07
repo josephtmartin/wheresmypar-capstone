@@ -83,6 +83,9 @@ export default class CourseDetails extends React.Component {
               <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>
                 View Reviews
               </Link>
+              <Link className='btn btn-primary m-2' to={`/scores/${course.id}`}>
+                View Your Scores For This Course
+              </Link>
             </div>
           </div>
         </div>
