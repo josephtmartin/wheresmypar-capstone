@@ -51,6 +51,18 @@ namespace WheresMyPar.DataAccess
             userCourseScore.id = id;
         }
 
+        public List<UserCourseScore> GetAllUsersScores(int user_id)
+        {
+            using var db = new SqlConnection(ConnectionString);
 
+            var sql = @"SELECT ucs.*, formatted_address, lat, lng, name, place_id, rating, user_ratings_total
+                        FROM UserCourseScore ucs
+	                        Join courses c
+	                        on c.id = ucs.course_id
+                        WHERE ucs.user_id = @user_id";
+
+            var results = db.Query<UserCourseScore>(sql, new { user_id = user_id }).ToList();
+            return results;
+        }
     }
 }

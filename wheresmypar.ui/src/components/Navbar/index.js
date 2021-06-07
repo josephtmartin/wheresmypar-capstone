@@ -30,7 +30,7 @@ export default class MyNavbar extends React.Component {
   };
 
   render() {
-    const { user } = this.props;
+    const { user, dbUser } = this.props;
     return (
       <div>
         <Navbar className='navbar' expand='lg'>
@@ -57,7 +57,7 @@ export default class MyNavbar extends React.Component {
                 </Link>
               </NavItem>
               <NavItem>
-                <Link to='/games-played' className='nav-link m-2' href='#'>
+                <Link to={`/games-played/${dbUser.id}`} className='nav-link m-2' href='#'>
                   Games Played
                 </Link>
               </NavItem>

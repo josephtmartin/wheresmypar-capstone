@@ -42,7 +42,7 @@ export default class App extends React.Component {
     return (
       <div className='App'>
         <BrowserRouter>
-          <Navbar user={user}/>
+          <Navbar user={user} dbUser={dbUser}/>
           <Routes user={user} dbUser = {dbUser}/>
         </BrowserRouter>
       </div>
