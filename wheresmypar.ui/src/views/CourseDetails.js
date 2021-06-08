@@ -53,7 +53,6 @@ export default class CourseDetails extends React.Component {
     const { course, isFavorite } = this.state;
     return (
       <>
-        <h2>Course Details Page</h2>
         <div className='course-card' style={{ width: '500px' }}>
           <div className='card m-2'>
             <h5 className='card-title'>{course.name}</h5>
@@ -86,6 +85,9 @@ export default class CourseDetails extends React.Component {
               </Link>
               <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>
                 View Reviews
+              </Link>
+              <Link className='btn btn-primary m-2' to={`/scores/${course.id}`}>
+                View Your Scores For This Course
               </Link>
             </div>
           </div>
