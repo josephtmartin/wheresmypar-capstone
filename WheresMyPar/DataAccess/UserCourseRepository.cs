@@ -55,6 +55,19 @@ namespace WheresMyPar.DataAccess
             return singleUserCourse;
         }
 
+        public UserCourse GetByCourseId(int course_id)
+        {
+            var sql = @"SELECT *
+                        FROM [UserCourse]
+                        WHERE course_id = @course_id";
+
+            using var db = new SqlConnection(ConnectionString);
+
+            var singleUserCourse = db.QueryFirstOrDefault<UserCourse>(sql, new { course_id = course_id });
+
+            return singleUserCourse;
+        }
+
         public void AddFavorite(UserCourse userCourse)
         {
             var sql = @"INSERT INTO [dbo].[UserCourse] ([user_id], [course_id], [is_favorite])
@@ -75,6 +88,19 @@ namespace WheresMyPar.DataAccess
             var sql = @"UPDATE [UserCourse]
                         SET is_favorite = 0
                         WHERE id = @id";
+
+            db.Execute(sql, userCourse);
+        }
+
+        public void AddReview(UserCourse userCourse)
+        {
+            using var db = new SqlConnection(ConnectionString);
+
+            var sql = @"UPDATE [UserCourse]
+                        SET user_rating = @user_rating,
+	                        review = @review
+                        WHERE [user_id] = @user_id
+                        AND course_id = @course_id";
 
             db.Execute(sql, userCourse);
         }

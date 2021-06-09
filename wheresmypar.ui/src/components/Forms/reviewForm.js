@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Ratings from 'react-ratings-declarative';
+import userCoursesData from '../../helpers/data/userCoursesData';
 
 export default class ReviewForm extends Component {
   state = {
@@ -15,8 +16,10 @@ export default class ReviewForm extends Component {
   }
 
   handleSubmit = (e) => {
+    const { courseId } = this.props;
+    const { review, rating } = this.state;
     e.preventDefault();
-    // addReview(this.state)
+    userCoursesData.AddAReview(courseId, rating, review);
   }
 
   changeRating = (newRating) => {
