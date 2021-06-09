@@ -29,4 +29,18 @@ const deleteFromFavorites = (courseId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-export default { createUserCoursesFavorites, getUserCoursesFavorites, deleteFromFavorites };
+const AddAReview = (courseId, userRating, review) => new Promise((resolve, reject) => {
+  axios.patch(`${userCoursesUrl}/addReview/${courseId}`, {
+    user_rating: userRating,
+    review,
+  }).then((response) => {
+    resolve(response.data);
+  }).catch((error) => reject(error));
+});
+
+export default {
+  createUserCoursesFavorites,
+  getUserCoursesFavorites,
+  deleteFromFavorites,
+  AddAReview,
+};

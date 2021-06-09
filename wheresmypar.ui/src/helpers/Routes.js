@@ -12,6 +12,7 @@ import Review from '../views/Review';
 import ViewReviews from '../views/ViewReviews';
 import ScoresSingleCourse from '../views/ScoresSingleCourse';
 import SearchResults from '../views/SearchResults';
+import SuccessAlert from '../components/SuccessAlert';
 
 export default function Routes({ dbUser, user }) {
   return (
@@ -39,7 +40,7 @@ export default function Routes({ dbUser, user }) {
         component={(props) => <NewGame dbUser={dbUser} user={user} {...props} />}
       />
       <Route exact path='/not-found' component={NotFound} />
-      <Route exact path='/review' component={Review} />
+      <Route exact path='/review/:id' component={(props) => <Review dbUser={dbUser} {...props} />}/>
       <Route exact path='/view-reviews/:id' component={ViewReviews} />
       <Route
         exact
@@ -47,6 +48,7 @@ export default function Routes({ dbUser, user }) {
         component={(props) => <ScoresSingleCourse dbUser={dbUser} user={user} {...props} />}
       />
       <Route exact path='/search/:term' component={(props) => <SearchResults {...props} />} />
+      <Route exact path='/success' component={SuccessAlert} />
     </Switch>
   );
 }

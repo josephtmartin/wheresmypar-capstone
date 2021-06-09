@@ -80,6 +80,9 @@ export default class CourseDetails extends React.Component {
                   Add To Favorites
                 </button>
               )}
+              <Link className='btn btn-primary m-2' to={`/review/${course.id}`}>
+                Leave A Review
+              </Link>
               <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>
                 View Reviews
               </Link>
