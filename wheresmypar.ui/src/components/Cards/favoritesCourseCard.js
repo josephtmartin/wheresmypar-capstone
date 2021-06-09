@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AppModal from '../AppModal';
 import ReviewForm from '../Forms/reviewForm';
 
-export default function FavoritesCourseCard({ course }) {
+export default function FavoritesCourseCard({ course, dbUser }) {
   return (
     <div className='course-card' style={{ width: '500px' }}>
       <div className='card m-2'>
@@ -14,7 +14,7 @@ export default function FavoritesCourseCard({ course }) {
           <p>Total Ratings: {course.user_ratings_total}</p>
         </div>
         <AppModal title={'Review Form'} buttonLabel={'Leave A Review'}>
-          <ReviewForm courseId={course.course_id} />
+          <ReviewForm courseId={course.course_id} dbUser={dbUser}/>
         </AppModal>
         <Link className='btn btn-primary m-2' to={`/course-details/${course.course_id}`}>
           Course Details

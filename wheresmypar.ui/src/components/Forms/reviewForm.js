@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Ratings from 'react-ratings-declarative';
 import userCoursesData from '../../helpers/data/userCoursesData';
 
-export default class ReviewForm extends Component {
+class ReviewForm extends Component {
   state = {
     review: '',
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.loadReviews();
+  }
+
+  loadReviews = () => {
+    const { dbUser } = this.props;
+    userCoursesData.getUserCoursesFavorites(dbUser.id).then((response) => {
+      response.forEach((item) => {
+        if (item.course_id === this.props.courseId) {
+          this.setState({
+            rating: item.user_rating,
+            review: item.review,
+          });
+        }
+      });
+    });
+  }
 
   handleChange = (e) => {
     this.setState({
@@ -20,6 +37,7 @@ export default class ReviewForm extends Component {
     const { review, rating } = this.state;
     e.preventDefault();
     userCoursesData.AddAReview(courseId, rating, review);
+    this.props.history.push('/success');
   }
 
   changeRating = (newRating) => {
@@ -53,8 +71,10 @@ export default class ReviewForm extends Component {
             <Ratings.Widget widgetRatedColor="gold"/>
             <Ratings.Widget widgetRatedColor="gold"/>
           </Ratings>
-          <button className='btn btn-dark m-2'>Submit</button>
+          <button className='btn btn-dark m-2' to={'/success'} >Submit</button>
       </form>
     );
   }
 }
+
+export default withRouter(ReviewForm);
