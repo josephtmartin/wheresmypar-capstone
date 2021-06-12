@@ -36,6 +36,17 @@ namespace WheresMyPar.Controllers
             return Ok(userCourse);
         }
 
+        [HttpGet("reviews/{course_id}")]
+        public IActionResult GetAllReviewsByCourseId(int course_id)
+        {
+            var userCourse = _repo.GetReviewsByCourseId(course_id);
+            if (userCourse == null)
+            {
+                return NotFound("This user course id does not exist");
+            }
+            return Ok(userCourse);
+        }
+
         //GET to /api/UserCourses/{id}
         //GET to /api/UserCourses/1
         [HttpGet("user/{id}")]
