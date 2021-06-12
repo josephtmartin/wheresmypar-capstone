@@ -38,9 +38,16 @@ const AddAReview = (userId, courseId, userRating, review) => new Promise((resolv
   }).catch((error) => reject(error));
 });
 
+const getReviewsForACourse = (courseId) => new Promise((resolve, reject) => {
+  axios.get(`${userCoursesUrl}/reviews/${courseId}`).then((response) => {
+    resolve(response.data);
+  }).catch((error) => reject(error));
+});
+
 export default {
   createUserCoursesFavorites,
   getUserCoursesFavorites,
   deleteFromFavorites,
   AddAReview,
+  getReviewsForACourse,
 };
