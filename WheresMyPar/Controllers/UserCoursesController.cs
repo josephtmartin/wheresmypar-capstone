@@ -78,10 +78,10 @@ namespace WheresMyPar.Controllers
             return Ok(userCourse);
         }
 
-        [HttpPatch("addreview/{course_id}")]
-        public IActionResult AddAReview(int course_id, UserCourse userCourseObj)
+        [HttpPatch("addreview/{user_id}/{course_id}")]
+        public IActionResult AddAReview(int user_id, int course_id, UserCourse userCourseObj)
         {
-            var userCourse = _repo.GetByCourseId(course_id);
+            var userCourse = _repo.GetByCourseId(user_id, course_id);
 
             userCourse.user_rating = userCourseObj.user_rating;
             userCourse.review = userCourseObj.review;

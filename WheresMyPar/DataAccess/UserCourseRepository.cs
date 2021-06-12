@@ -72,15 +72,16 @@ namespace WheresMyPar.DataAccess
             return singleUserCourse;
         }
 
-        public UserCourse GetByCourseId(int course_id)
+        public UserCourse GetByCourseId(int user_id, int course_id)
         {
             var sql = @"SELECT *
                         FROM [UserCourse]
-                        WHERE course_id = @course_id";
+                        WHERE course_id = @course_id
+                        AND user_id = @user_id";
 
             using var db = new SqlConnection(ConnectionString);
 
-            var singleUserCourse = db.QueryFirstOrDefault<UserCourse>(sql, new { course_id = course_id });
+            var singleUserCourse = db.QueryFirstOrDefault<UserCourse>(sql, new { user_id = user_id, course_id = course_id });
 
             return singleUserCourse;
         }
