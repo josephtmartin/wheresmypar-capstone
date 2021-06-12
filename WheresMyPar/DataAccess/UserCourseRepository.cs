@@ -42,6 +42,23 @@ namespace WheresMyPar.DataAccess
             return singleUserCourses;
         }
 
+        public List<DetailedUserCourse> GetReviewsByCourseId(int course_id)
+        {
+            var sql = @"SELECT uc.*, c.formatted_address, c.lat, c.lng, c.[name], c.place_id, c. rating, c.user_ratings_total
+                        FROM UserCourse uc
+                         join Courses c
+	                        on uc.course_id = c.id
+                        WHERE user_id = @user_id
+                        AND is_favorite = 1
+                        ORDER BY id desc";
+
+            using var db = new SqlConnection(ConnectionString);
+
+            var courseReviews = db.Query<DetailedUserCourse>(sql, new { course_id = course_id }).ToList();
+
+            return courseReviews;
+        }
+
         public UserCourse Get(int id)
         {
             var sql = @"SELECT *
@@ -55,15 +72,16 @@ namespace WheresMyPar.DataAccess
             return singleUserCourse;
         }
 
-        public UserCourse GetByCourseId(int course_id)
+        public UserCourse GetByCourseId(int user_id, int course_id)
         {
             var sql = @"SELECT *
                         FROM [UserCourse]
-                        WHERE course_id = @course_id";
+                        WHERE course_id = @course_id
+                        AND user_id = @user_id";
 
             using var db = new SqlConnection(ConnectionString);
 
-            var singleUserCourse = db.QueryFirstOrDefault<UserCourse>(sql, new { course_id = course_id });
+            var singleUserCourse = db.QueryFirstOrDefault<UserCourse>(sql, new { user_id = user_id, course_id = course_id });
 
             return singleUserCourse;
         }

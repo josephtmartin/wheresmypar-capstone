@@ -34,9 +34,10 @@ class ReviewForm extends Component {
 
   handleSubmit = (e) => {
     const { courseId } = this.props;
+    const userId = this.props.dbUser.id;
     const { review, rating } = this.state;
     e.preventDefault();
-    userCoursesData.AddAReview(courseId, rating, review);
+    userCoursesData.AddAReview(userId, courseId, rating, review);
     this.props.history.push('/success');
   }
 

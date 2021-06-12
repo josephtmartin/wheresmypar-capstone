@@ -29,8 +29,8 @@ const deleteFromFavorites = (courseId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-const AddAReview = (courseId, userRating, review) => new Promise((resolve, reject) => {
-  axios.patch(`${userCoursesUrl}/addReview/${courseId}`, {
+const AddAReview = (userId, courseId, userRating, review) => new Promise((resolve, reject) => {
+  axios.patch(`${userCoursesUrl}/addReview/${userId}/${courseId}`, {
     user_rating: userRating,
     review,
   }).then((response) => {
