@@ -28,11 +28,15 @@ export default class CourseDetails extends React.Component {
     const { dbUser } = this.props;
     const courseId = parseInt(this.props.match.params.id, 10);
     userCoursesData.createUserCoursesFavorites(dbUser.id, courseId);
+    this.setState({
+      isFavorite: true,
+    });
   };
 
   removeFromFavorites = () => {
+    const userId = this.props.dbUser.id;
     const courseId = parseInt(this.props.match.params.id, 10);
-    userCoursesData.deleteFromFavorites(courseId);
+    userCoursesData.deleteFromFavorites(userId, courseId);
     this.setState({
       isFavorite: false,
     });
@@ -58,8 +62,8 @@ export default class CourseDetails extends React.Component {
             <h5 className='card-title'>{course.name}</h5>
             <div className='card-body'>
               <p className='card-text'>{course.formatted_address}</p>
-              <p>Rating: {course.rating}</p>
-              <p>Total Ratings: {course.user_ratings_total}</p>
+              {/* <p>Rating: {course.rating}</p>
+              <p>Total Ratings: {course.user_ratings_total}</p> */}
               <Link className='btn btn-primary m-2' to={`/new-game/${course.id}`}>
                 Start A New Game
               </Link>

@@ -67,15 +67,13 @@ namespace WheresMyPar.Controllers
             return Created($"api/UserCourses/{userCourse.id}", userCourse);
         }
 
-        [HttpPatch("update/{id}")]
-        public IActionResult DeleteFavoriteCourse(int id)
+        [HttpDelete("delete/{user_id}/{course_id}")]
+        public IActionResult DeleteFavoriteCourse(int user_id, int course_id)
         {
-            var userCourse = _repo.Get(id);
-
-            userCourse.is_favorite = false;
+            var userCourse = _repo.GetByCourseId(user_id, course_id);
 
             _repo.DeleteFavorite(userCourse);
-            return Ok(userCourse);
+            return Ok();
         }
 
         [HttpPatch("addreview/{user_id}/{course_id}")]
