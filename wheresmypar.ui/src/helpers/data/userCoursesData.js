@@ -23,11 +23,7 @@ const getUserCoursesFavorites = (userId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-const deleteFromFavorites = (courseId) => new Promise((resolve, reject) => {
-  axios.patch(`${userCoursesUrl}/update/${courseId}`).then((response) => {
-    resolve(response.data);
-  }).catch((error) => reject(error));
-});
+const deleteFromFavorites = (userId, courseId) => axios.delete(`${userCoursesUrl}/delete/${userId}/${courseId}`);
 
 const AddAReview = (userId, courseId, userRating, review) => new Promise((resolve, reject) => {
   axios.patch(`${userCoursesUrl}/addReview/${userId}/${courseId}`, {

@@ -104,8 +104,8 @@ namespace WheresMyPar.DataAccess
         {
             using var db = new SqlConnection(ConnectionString);
 
-            var sql = @"UPDATE [UserCourse]
-                        SET is_favorite = 0
+            var sql = @"DELETE
+                        FROM [UserCourse]
                         WHERE id = @id";
 
             db.Execute(sql, userCourse);

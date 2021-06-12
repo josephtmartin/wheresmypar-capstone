@@ -3,7 +3,6 @@ import { google } from '../apiKeys.json';
 
 const GoogleMapSearch = (area) => new Promise((resolve, reject) => {
   Geocode.setApiKey(google.googleApiKey);
-  console.warn(google.googleApiKey);
   Geocode.setLanguage('en');
   Geocode.setRegion('es');
   Geocode.enableDebug();
