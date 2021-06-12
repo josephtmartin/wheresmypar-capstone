@@ -48,8 +48,9 @@ namespace WheresMyPar.DataAccess
                         FROM UserCourse uc
                          join Courses c
 	                        on uc.course_id = c.id
-                        WHERE user_id = @user_id
-                        AND is_favorite = 1
+							WHERE course_id = @course_id
+                        AND user_rating IS NOT NULL
+                        AND review IS NOT NULL
                         ORDER BY id desc";
 
             using var db = new SqlConnection(ConnectionString);
