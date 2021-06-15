@@ -54,9 +54,10 @@ class SearchResults extends Component {
     const cards = results.map(courseCard);
 
     return (
-      <div>
-        <h1>Search Results</h1>
-        <div className='course-cards-container'>{cards}</div>
+      <div className='outer-container'>
+        <div className='sub-container'>
+          <div className='course-cards-container'>{cards}</div>
+        </div>
       </div>
     );
   }

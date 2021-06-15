@@ -56,44 +56,46 @@ export default class CourseDetails extends React.Component {
   render() {
     const { course, isFavorite } = this.state;
     return (
-      <>
-        <div className='course-card' style={{ width: '500px' }}>
-          <div className='card m-2'>
-            <h5 className='card-title'>{course.name}</h5>
-            <div className='card-body'>
-              <p className='card-text'>{course.formatted_address}</p>
-              {/* <p>Rating: {course.rating}</p>
-              <p>Total Ratings: {course.user_ratings_total}</p> */}
-              <Link className='btn btn-primary m-2' to={`/new-game/${course.id}`}>
-                Start A New Game
-              </Link>
-              {isFavorite ? (
-                <button
-                  className='btn btn-danger m-2'
-                  id={course.id}
-                  onClick={() => this.removeFromFavorites()}
-                >
-                  Remove From Favorites
-                </button>
-              ) : (
-                <button
-                  className='btn btn-success m-2'
-                  id={course.id}
-                  onClick={() => this.addToFavorites()}
-                >
-                  Add To Favorites
-                </button>
-              )}
-              <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>
-                View Reviews
-              </Link>
-              <Link className='btn btn-primary m-2' to={`/scores/${course.id}`}>
-                View Your Scores For This Course
-              </Link>
+      <div className='outer-container'>
+        <div className='sub-container'>
+          <div className='course-card' style={{ width: '500px' }}>
+            <div className='card m-2'>
+              <h5 className='card-title'>{course.name}</h5>
+              <div className='card-body'>
+                <p className='card-text'>{course.formatted_address}</p>
+                {/* <p>Rating: {course.rating}</p>
+                <p>Total Ratings: {course.user_ratings_total}</p> */}
+                <Link className='btn btn-primary m-2' to={`/new-game/${course.id}`}>
+                  Start A New Game
+                </Link>
+                {isFavorite ? (
+                  <button
+                    className='btn btn-danger m-2'
+                    id={course.id}
+                    onClick={() => this.removeFromFavorites()}
+                  >
+                    Remove From Favorites
+                  </button>
+                ) : (
+                  <button
+                    className='btn btn-success m-2'
+                    id={course.id}
+                    onClick={() => this.addToFavorites()}
+                  >
+                    Add To Favorites
+                  </button>
+                )}
+                <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>
+                  View Reviews
+                </Link>
+                <Link className='btn btn-primary m-2' to={`/scores/${course.id}`}>
+                  View Your Scores For This Course
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

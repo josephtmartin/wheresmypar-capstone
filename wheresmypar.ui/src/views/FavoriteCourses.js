@@ -27,10 +27,12 @@ export default class FavoriteCourses extends React.Component {
 
     const renderAllCourseCards = () => courses.map((course) => (<FavoritesCourseCard key={course.id} course={course} dbUser={dbUser}/>));
     return (
-      <>
-        <h2>{user.displayName}&apos;s Favorites</h2>
-        {renderAllCourseCards()}
-      </>
+      <div className='outer-container'>
+        <div className='sub-container'>
+          <h2>{user.displayName}&apos;s Favorites</h2>
+          {renderAllCourseCards()}
+        </div>
+      </div>
     );
   }
 }

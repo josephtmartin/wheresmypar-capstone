@@ -35,15 +35,19 @@ export default class NewGame extends React.Component {
     const { counterValue } = this.state;
     const { user } = this.props;
     return (
-      <div className='counter--card'>
-        <h3 className="counter--header">{user.displayName}</h3>
-        <div className='counter--value'>{counterValue}</div>
-        <div className='counter--buttons'>
-          <button className='btn btn-danger m-2' onClick={() => this.decrease()}>-1</button>
-          <button className='btn btn-primary m-2' onClick={() => this.reset()}>Reset</button>
-          <button className='btn btn-success m-2' onClick={() => this.increase()}>+1</button>
+      <div className='outer-container'>
+        <div className='sub-container'>
+          <div className='counter--card'>
+            <h2 className="counter--header">{user.displayName}</h2>
+            <h1 className='counter--value'>{counterValue}</h1>
+            <div className='counter--buttons'>
+              <button className='btn btn-danger m-2' onClick={() => this.decrease()}>-1</button>
+              <button className='btn btn-primary m-2' onClick={() => this.reset()}>Reset</button>
+              <button className='btn btn-success m-2' onClick={() => this.increase()}>+1</button>
+            </div>
+            <button className='btn btn-dark m-2' onClick={() => this.addScoreToDb()}>Submit Score</button>
+          </div>
         </div>
-        <button className='btn btn-dark m-2' onClick={() => this.addScoreToDb()}>Submit Score</button>
       </div>
     );
   }
