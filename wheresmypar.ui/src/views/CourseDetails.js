@@ -55,6 +55,7 @@ export default class CourseDetails extends React.Component {
 
   render() {
     const { course, isFavorite } = this.state;
+    const { user } = this.props;
     return (
       <div className='outer-container'>
         <div className='sub-container'>
@@ -65,10 +66,12 @@ export default class CourseDetails extends React.Component {
                 <p className='card-text'>{course.formatted_address}</p>
                 {/* <p>Rating: {course.rating}</p>
                 <p>Total Ratings: {course.user_ratings_total}</p> */}
-                <Link className='btn btn-primary m-2' to={`/new-game/${course.id}`}>
+                {user && (
+                  <Link className='btn btn-primary m-2' to={`/new-game/${course.id}`}>
                   Start A New Game
                 </Link>
-                {isFavorite ? (
+                )}
+                {user && isFavorite ? (
                   <button
                     className='btn btn-danger m-2'
                     id={course.id}
@@ -76,7 +79,7 @@ export default class CourseDetails extends React.Component {
                   >
                     Remove From Favorites
                   </button>
-                ) : (
+                ) : user && (
                   <button
                     className='btn btn-success m-2'
                     id={course.id}
@@ -88,9 +91,11 @@ export default class CourseDetails extends React.Component {
                 <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>
                   View Reviews
                 </Link>
-                <Link className='btn btn-primary m-2' to={`/scores/${course.id}`}>
+                {user && (
+                  <Link className='btn btn-primary m-2' to={`/scores/${course.id}`}>
                   View Your Scores For This Course
-                </Link>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
