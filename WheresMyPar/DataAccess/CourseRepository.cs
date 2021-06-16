@@ -49,7 +49,7 @@ namespace WheresMyPar.DataAccess
 
             var id = db.ExecuteScalar<int>(sql, course);
 
-            course.id = id;
+            course.Id = id;
         }
     }
 }

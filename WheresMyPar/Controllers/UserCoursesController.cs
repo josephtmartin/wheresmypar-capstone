@@ -64,7 +64,7 @@ namespace WheresMyPar.Controllers
         public IActionResult AddAFavorite(UserCourse userCourse)
         {
             _repo.AddFavorite(userCourse);
-            return Created($"api/UserCourses/{userCourse.id}", userCourse);
+            return Created($"api/UserCourses/{userCourse.Id}", userCourse);
         }
 
         [HttpDelete("delete/{user_id}/{course_id}")]
@@ -81,8 +81,8 @@ namespace WheresMyPar.Controllers
         {
             var userCourse = _repo.GetByCourseId(user_id, course_id);
 
-            userCourse.user_rating = userCourseObj.user_rating;
-            userCourse.review = userCourseObj.review;
+            userCourse.User_rating = userCourseObj.User_rating;
+            userCourse.Review = userCourseObj.Review;
 
             _repo.AddReview(userCourse);
             return Ok(userCourse);

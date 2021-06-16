@@ -97,7 +97,7 @@ namespace WheresMyPar.DataAccess
 
             var id = db.ExecuteScalar<int>(sql, userCourse);
 
-            userCourse.id = id;
+            userCourse.Id = id;
         }
 
         public void DeleteFavorite(UserCourse userCourse)

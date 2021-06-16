@@ -55,7 +55,7 @@ namespace WheresMyPar.Controllers
         public IActionResult AddAUser(User user)
         {
             _repo.Add(user);
-            return Created($"api/Users/{user.id}", user);
+            return Created($"api/Users/{user.Id}", user);
         }
     }
 }

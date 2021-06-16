@@ -63,7 +63,7 @@ namespace WheresMyPar.DataAccess
 
             var id = db.ExecuteScalar<int>(sql, user);
 
-            user.id = id;
+            user.Id = id;
         }
 
 

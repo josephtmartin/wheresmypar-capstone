@@ -7,12 +7,12 @@ namespace WheresMyPar.Models
 {
     public class UserCourse
     {
-        public int id { get; set; }
-        public int course_id { get; set; }
-        public int user_id { get; set; }
-        public bool visited { get; set; }
-        public int user_rating { get; set; }
-        public string review { get; set; }
-        public bool is_favorite { get; set; }
+        public int Id { get; set; }
+        public int Course_id { get; set; }
+        public int User_id { get; set; }
+        public bool Visited { get; set; }
+        public int User_rating { get; set; }
+        public string Review { get; set; }
+        public bool Is_favorite { get; set; }
     }
 }

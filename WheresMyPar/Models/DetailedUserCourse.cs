@@ -7,20 +7,20 @@ namespace WheresMyPar.Models
 {
     public class DetailedUserCourse
     {
-        public int id { get; set; }
-        public int course_id { get; set; }
-        public int user_id { get; set; }
-        public bool visited { get; set; }
-        public int user_rating { get; set; }
-        public string review { get; set; }
-        public bool is_favorite { get; set; }
+        public int Id { get; set; }
+        public int Course_id { get; set; }
+        public int User_id { get; set; }
+        public bool Visited { get; set; }
+        public int User_rating { get; set; }
+        public string Review { get; set; }
+        public bool Is_favorite { get; set; }
 
-        public string formatted_address { get; set; }
-        public double lat { get; set; }
-        public double lng { get; set; }
-        public string name { get; set; }
-        public string place_id { get; set; }
-        public double rating { get; set; }
-        public int user_ratings_total { get; set; }
+        public string Formatted_address { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
+        public string Name { get; set; }
+        public string Place_id { get; set; }
+        public double Rating { get; set; }
+        public int User_ratings_total { get; set; }
     }
 }

@@ -48,7 +48,7 @@ namespace WheresMyPar.DataAccess
 
             var id = db.ExecuteScalar<int>(sql, userCourseScore);
 
-            userCourseScore.id = id;
+            userCourseScore.Id = id;
         }
 
         public List<UserCourseScore> GetAllUsersScores(int user_id)
