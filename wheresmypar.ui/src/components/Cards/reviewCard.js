@@ -3,7 +3,7 @@ import Ratings from 'react-ratings-declarative';
 
 export default function ReviewCard({ review }) {
   return (
-    <div className='course-card' style={{ width: '500px' }}>
+    <div className='course-card'>
       <div className='card m-2'>
         <h5 className='card-title'>{review.review}</h5>
         <div className='card-body'>
