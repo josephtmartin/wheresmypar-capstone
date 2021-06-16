@@ -7,13 +7,13 @@ namespace WheresMyPar.Models
 {
     public class Course
     {
-        public int id { get; set; }
-        public string formatted_address { get; set; }
-        public double lat { get; set; }
-        public double lng { get; set; }
-        public string name { get; set; }
-        public string place_id { get; set; }
-        public double rating { get; set; }
-        public int user_ratings_total { get; set; }
+        public int Id { get; set; }
+        public string Formatted_address { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
+        public string Name { get; set; }
+        public string Place_id { get; set; }
+        public double Rating { get; set; }
+        public int User_ratings_total { get; set; }
     }
 }

@@ -64,7 +64,7 @@ namespace WheresMyPar.Controllers
         public IActionResult AddAScore(UserCourseScore userCourseScore)
         {
             _repo.AddScore(userCourseScore);
-            return Created($"api/UserCourses/{userCourseScore.id}", userCourseScore);
+            return Created($"api/UserCourses/{userCourseScore.Id}", userCourseScore);
         }
     }
 }

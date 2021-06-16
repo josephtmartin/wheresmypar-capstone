@@ -52,14 +52,18 @@ export default class MyNavbar extends React.Component {
                 </Link>
               </NavItem>
               <NavItem>
-                <Link to='/favorite-courses' className='nav-link m-2' href='#'>
+                {user && (
+                  <Link to='/favorite-courses' className='nav-link m-2' href='#'>
                   Favorite Courses
-                </Link>
+                  </Link>
+                )}
               </NavItem>
               <NavItem>
-                <Link to='/games-played' className='nav-link m-2' href='#'>
+                { user && (
+                  <Link to='/games-played' className='nav-link m-2' href='#'>
                   Games Played
-                </Link>
+                  </Link>
+                )}
               </NavItem>
             </Nav>
             <NavbarText>

@@ -26,10 +26,12 @@ export default class GamesPlayed extends React.Component {
 
     const renderAllCourseCards = () => courses.map((course) => (<CourseScoresCard key={course.course_id} course={course} dbUser={dbUser}/>));
     return (
-      <>
-        <h2>Games Played By {user.displayName}</h2>
-        {renderAllCourseCards()}
-      </>
+      <div className='outer-container'>
+        <div className='sub-container'>
+          <h2>Games Played By {user.displayName}</h2>
+          {renderAllCourseCards()}
+        </div>
+      </div>
     );
   }
 }

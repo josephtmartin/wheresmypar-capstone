@@ -26,10 +26,12 @@ export default class ViewReviews extends React.Component {
     const renderAllCourseCards = () => reviews.map((review) => (<ReviewCard key={review.id} review={review} />));
 
     return (
-      <>
-        <h2>View Reviews Page</h2>
-        {renderAllCourseCards()}
-      </>
+      <div className='outer-container'>
+        <div className='sub-container'>
+          <h2>Reviews:</h2>
+          {reviews.length ? renderAllCourseCards() : <h2>There are currently no reviews for this course</h2>}
+        </div>
+      </div>
     );
   }
 }

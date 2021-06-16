@@ -37,14 +37,17 @@ export default class ScoresSingleCourse extends React.Component {
 
     const renderScores = () => scores.map((score) => (
       <div key={score.id} className='score-container'>
-        <h2 className='date-played'>Date: {score.date_played}</h2>
-        <h4 className='score'>Score: {score.score}</h4>
+        <h3 className='date-played'>Date: {score.date_played}</h3>
+        <h3 className='score'>Score: {score.score}</h3>
+        <hr/>
       </div>
     ));
     return (
-      <div>
-        <h2>Your Games At {courseName}</h2>
-        <div className="overflow-auto">{renderScores()}</div>
+      <div className='outer-container'>
+        <div className='sub-container'>
+          <h2>Your Games At {courseName}</h2>
+          <div className="overflow-auto">{renderScores()}</div>
+        </div>
       </div>
     );
   }

@@ -7,7 +7,7 @@ namespace WheresMyPar.Models
 {
     public class User
     {
-        public int id { get; set; }
-        public string fb_uid { get; set; }
+        public int Id { get; set; }
+        public string Fb_uid { get; set; }
     }
 }

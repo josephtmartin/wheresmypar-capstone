@@ -36,13 +36,13 @@ class SearchResults extends Component {
     // const showResults = () => results.map((result) => <CourseCard key={result.id} product={result} />);
 
     const courseCard = (course) => (
-      <div className='course-card' style={{ width: '500px' }} key={course.id}>
+      <div className='course-card' key={course.id}>
         <div className='card m-2'>
           <h5 className='card-title'>{course.name}</h5>
           <div className='card-body'>
             <p className='card-text'>{course.formatted_address}</p>
-            <p>{course.rating}</p>
-            <p>{course.user_ratings_total}</p>
+            {/* <p>{course.rating}</p>
+            <p>{course.user_ratings_total}</p> */}
           </div>
           <Link className='btn btn-primary m-2' to={`/course-details/${course.id}`}>
             Course Details
@@ -54,9 +54,10 @@ class SearchResults extends Component {
     const cards = results.map(courseCard);
 
     return (
-      <div>
-        <h1>Search Results</h1>
-        <div className='course-cards-container'>{cards}</div>
+      <div className='outer-container'>
+        <div className='sub-container'>
+          <div className='course-cards-container'>{cards}</div>
+        </div>
       </div>
     );
   }

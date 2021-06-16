@@ -36,12 +36,14 @@ export default class FindCourses extends React.Component {
 
     const renderAllCourseCards = () => courses.map((course) => (<CourseCard key={course.id} course={course} />));
     return (
-      <>
-        <h2>Find Courses In Your City</h2>
-        <p className='mr-2 mt-3 text-light'>Search:</p>
-            <SearchInput />
-        {renderAllCourseCards()}
-      </>
+        <div className='outer-container'>
+          <div className='sub-container'>
+            <h2>Find Courses In Your City</h2>
+            <p className='mr-2 mt-3 text-light'>Search:</p>
+                <SearchInput />
+            {renderAllCourseCards()}
+          </div>
+        </div>
     );
   }
 }

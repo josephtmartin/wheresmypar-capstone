@@ -5,7 +5,7 @@ import ReviewForm from '../Forms/reviewForm';
 
 export default function FavoritesCourseCard({ course, dbUser }) {
   return (
-    <div className='course-card' style={{ width: '500px' }}>
+    <div className='course-card'>
       <div className='card m-2'>
         <h5 className='card-title'>{course.name}</h5>
         <div className='card-body'>

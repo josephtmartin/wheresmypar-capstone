@@ -40,7 +40,7 @@ namespace WheresMyPar.Controllers
         public IActionResult AddACourse(Course course)
         {
             _repo.Add(course);
-            return Created($"api/Courses/{course.id}", course);
+            return Created($"api/Courses/{course.Id}", course);
         }
     }
 }

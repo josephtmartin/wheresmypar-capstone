@@ -21,7 +21,7 @@ export default function Routes({ dbUser, user }) {
       <Route
         exact
         path='/course-details/:id'
-        component={(props) => <CourseDetails dbUser={dbUser} {...props} />}
+        component={(props) => <CourseDetails user={user} dbUser={dbUser} {...props} />}
       />
       <Route
         exact
