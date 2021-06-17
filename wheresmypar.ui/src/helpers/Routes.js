@@ -13,11 +13,13 @@ import ViewReviews from '../views/ViewReviews';
 import ScoresSingleCourse from '../views/ScoresSingleCourse';
 import SearchResults from '../views/SearchResults';
 import SuccessAlert from '../components/SuccessAlert';
+import FindCoursesMap from '../views/FindCoursesMap';
 
 export default function Routes({ dbUser, user }) {
   return (
     <Switch>
       <Route exact path='/' component={Home} />
+      <Route exact path='/find-courses-map' component={(props) => <FindCoursesMap {...props} />}/>
       <Route
         exact
         path='/course-details/:id'
