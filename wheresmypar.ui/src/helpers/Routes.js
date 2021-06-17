@@ -19,7 +19,7 @@ export default function Routes({ dbUser, user }) {
   return (
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route exact path='/find-courses-map' component={FindCoursesMap}/>
+      <Route exact path='/find-courses-map' component={(props) => <FindCoursesMap {...props} />}/>
       <Route
         exact
         path='/course-details/:id'

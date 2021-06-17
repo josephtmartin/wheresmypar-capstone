@@ -6,8 +6,9 @@ import {
   Marker,
   InfoWindow,
 } from 'react-google-maps';
+// import { Link } from 'react-router-dom';
 import courseData from '../../helpers/data/courseData';
-import CourseCard from '../Cards/courseCard';
+import MapCourseCard from '../Cards/mapCourseCard';
 
 class Map extends React.Component {
   state = {
@@ -52,7 +53,7 @@ class Map extends React.Component {
               selectedCourse: null,
             });
           }}>
-            <CourseCard course={selectedCourse}/>
+            <MapCourseCard course={selectedCourse}/>
           </InfoWindow>
         )}
       </GoogleMap>
