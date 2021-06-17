@@ -48,7 +48,16 @@ export default class MyNavbar extends React.Component {
                   className='nav-link m-2'
                   href='#'
                 >
-                  Find Courses
+                  Find Courses By City
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link
+                  to='/find-courses-map'
+                  className='nav-link m-2'
+                  href='#'
+                >
+                  Find Courses By Map
                 </Link>
               </NavItem>
               <NavItem>
