@@ -18,8 +18,12 @@ import FindCoursesMap from '../views/FindCoursesMap';
 export default function Routes({ dbUser, user }) {
   return (
     <Switch>
-      <Route exact path='/' component={Home} />
-      <Route exact path='/find-courses-map' component={(props) => <FindCoursesMap {...props} />}/>
+      <Route
+        exact
+        path='/'
+        component={(props) => <Home user={user} dbUser={dbUser} {...props} />}
+      />
+      <Route exact path='/find-courses-map' component={(props) => <FindCoursesMap {...props} />} />
       <Route
         exact
         path='/course-details/:id'
@@ -42,7 +46,11 @@ export default function Routes({ dbUser, user }) {
         component={(props) => <NewGame dbUser={dbUser} user={user} {...props} />}
       />
       <Route exact path='/not-found' component={NotFound} />
-      <Route exact path='/review/:id' component={(props) => <Review dbUser={dbUser} {...props} />}/>
+      <Route
+        exact
+        path='/review/:id'
+        component={(props) => <Review dbUser={dbUser} {...props} />}
+      />
       <Route exact path='/view-reviews/:id' component={ViewReviews} />
       <Route
         exact
