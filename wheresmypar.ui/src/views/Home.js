@@ -10,7 +10,7 @@ export default class Home extends React.Component {
           {/* <TypingEffect /> */}
           <h1 className='home-heading'>Welcome to Where&apos;s My Par!</h1>
           {user ? (
-            <h1 className='home-heading'>Thanks for logging in!</h1>
+            <h1 className='home-heading'>Thanks for logging in {user.displayName}, let&apos;s get started!</h1>
           ) : (
             <h1 className='home-heading'>Log in to unlock more features!</h1>
           )}

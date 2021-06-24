@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import userCourseScoresData from '../helpers/data/userCourseScoresData';
 import courseData from '../helpers/data/courseData';
 
@@ -37,7 +38,7 @@ export default class ScoresSingleCourse extends React.Component {
 
     const renderScores = () => scores.map((score) => (
       <div key={score.id} className='score-container'>
-        <h3 className='date-played'>Date: {score.date_played}</h3>
+        <h3 className='date-played'>Date: {moment(score.date_played).format('MMM Do YYYY')}</h3>
         <h3 className='score'>Score: {score.score}</h3>
         <hr/>
       </div>
