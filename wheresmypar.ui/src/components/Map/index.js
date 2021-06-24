@@ -41,7 +41,7 @@ class Map extends React.Component {
     return (
 
       <GoogleMap
-        defaultZoom={6}
+        defaultZoom={7}
         defaultCenter={{ lat: 35.64070770000001, lng: -86.5164992 }}
       >
         {courses.map((course) => (
