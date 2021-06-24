@@ -9,6 +9,7 @@ import {
 // import { Link } from 'react-router-dom';
 import courseData from '../../helpers/data/courseData';
 import MapCourseCard from '../Cards/mapCourseCard';
+import basket from '../../images/disc-golf-basket.png';
 
 class Map extends React.Component {
   state = {
@@ -30,6 +31,13 @@ class Map extends React.Component {
 
   render() {
     const { courses, selectedCourse } = this.state;
+    const iconMarker = new window.google.maps.MarkerImage(
+      `${basket}`,
+      null, /* size is determined at runtime */
+      null, /* origin is 0,0 */
+      null, /* anchor is bottom center of the scaled image */
+      new window.google.maps.Size(32, 32)
+    );
     return (
 
       <GoogleMap
@@ -38,6 +46,7 @@ class Map extends React.Component {
       >
         {courses.map((course) => (
           <Marker
+            icon={iconMarker}
             key={course.id}
             position={{ lat: course.lat, lng: course.lng }}
             onClick={() => {

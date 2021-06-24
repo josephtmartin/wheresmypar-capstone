@@ -11,7 +11,7 @@ export default function MapCourseCard({ course }) {
         <div className='card-body'>
           <p className='card-text'>{course.formatted_address}</p>
         </div>
-        <button className='btn btn-primary m-2' onClick={linkToCourseDetails}>More About Course</button>
+        <button className='btn btn-dark m-2' onClick={linkToCourseDetails}>More About Course</button>
       </div>
     </div>
   );

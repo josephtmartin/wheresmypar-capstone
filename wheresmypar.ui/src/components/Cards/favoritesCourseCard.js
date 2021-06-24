@@ -16,7 +16,7 @@ export default function FavoritesCourseCard({ course, dbUser }) {
         <AppModal title={'Review Form'} buttonLabel={'Leave A Review'}>
           <ReviewForm courseId={course.course_id} dbUser={dbUser}/>
         </AppModal>
-        <Link className='btn btn-primary m-2' to={`/course-details/${course.course_id}`}>
+        <Link className='btn btn-dark m-2' to={`/course-details/${course.course_id}`}>
           Course Details
         </Link>
       </div>

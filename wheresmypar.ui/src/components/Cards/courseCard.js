@@ -11,7 +11,7 @@ export default function CourseCard({ course }) {
           {/* <p>Rating: {course.rating}</p>
           <p>Total Ratings: {course.user_ratings_total}</p> */}
         </div>
-        <Link className='btn btn-primary m-2' to={`/course-details/${course.id}`}>
+        <Link className='btn btn-dark m-2 course-details-btn' to={`/course-details/${course.id}`}>
           Course Details
         </Link>
       </div>

@@ -10,7 +10,7 @@ export default function courseScoresCard({ course }) {
           <p className='card-text'>Date: {course.date_played}</p>
           <p>Score: {course.score}</p>
         </div>
-        <Link className='btn btn-primary m-2' to={`/course-details/${course.course_id}`}>
+        <Link className='btn btn-dark m-2' to={`/course-details/${course.course_id}`}>
           Course Details
         </Link>
       </div>

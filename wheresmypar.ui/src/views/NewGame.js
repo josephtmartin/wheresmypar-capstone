@@ -41,11 +41,11 @@ export default class NewGame extends React.Component {
             <h2 className="counter--header">{user.displayName}</h2>
             <h1 className='counter--value'>{counterValue}</h1>
             <div className='counter--buttons'>
-              <button className='btn btn-danger m-2' onClick={() => this.decrease()}>-1</button>
-              <button className='btn btn-primary m-2' onClick={() => this.reset()}>Reset</button>
-              <button className='btn btn-success m-2' onClick={() => this.increase()}>+1</button>
+              <button className='btn btn-dark m-2' onClick={() => this.decrease()}>-1</button>
+              <button className='btn btn-light m-2' onClick={() => this.reset()}>Reset</button>
+              <button className='btn btn-dark m-2' onClick={() => this.increase()}>+1</button>
             </div>
-            <button className='btn btn-dark m-2' onClick={() => this.addScoreToDb()}>Submit Score</button>
+            <button className='btn btn-light m-2' onClick={() => this.addScoreToDb()}>Submit Score</button>
           </div>
         </div>
       </div>

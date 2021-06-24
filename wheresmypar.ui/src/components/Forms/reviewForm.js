@@ -62,15 +62,15 @@ class ReviewForm extends Component {
           />
           <Ratings
             rating={this.state.rating}
-            widgetRatedColors="gold"
-            widgetHoverColors="gold"
+            widgetRatedColors="grey"
+            widgetHoverColors="grey"
             changeRating={this.changeRating}
           >
-            <Ratings.Widget widgetRatedColor="gold"/>
-            <Ratings.Widget widgetRatedColor="gold"/>
-            <Ratings.Widget widgetRatedColor="gold"/>
-            <Ratings.Widget widgetRatedColor="gold"/>
-            <Ratings.Widget widgetRatedColor="gold"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
           </Ratings>
           <button className='btn btn-dark m-2' to={'/success'} >Submit</button>
       </form>

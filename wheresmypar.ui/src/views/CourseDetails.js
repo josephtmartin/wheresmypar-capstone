@@ -67,13 +67,13 @@ export default class CourseDetails extends React.Component {
                 {/* <p>Rating: {course.rating}</p>
                 <p>Total Ratings: {course.user_ratings_total}</p> */}
                 {user && (
-                  <Link className='btn btn-primary m-2' to={`/new-game/${course.id}`}>
+                  <Link className='btn btn-dark m-2' to={`/new-game/${course.id}`}>
                   Start A New Game
                 </Link>
                 )}
                 {user && isFavorite ? (
                   <button
-                    className='btn btn-danger m-2'
+                    className='btn btn-dark m-2'
                     id={course.id}
                     onClick={() => this.removeFromFavorites()}
                   >
@@ -81,18 +81,18 @@ export default class CourseDetails extends React.Component {
                   </button>
                 ) : user && (
                   <button
-                    className='btn btn-success m-2'
+                    className='btn btn-dark m-2'
                     id={course.id}
                     onClick={() => this.addToFavorites()}
                   >
                     Add To Favorites
                   </button>
                 )}
-                <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>
+                <Link className='btn btn-dark m-2' to={`/view-reviews/${course.id}`}>
                   View Reviews
                 </Link>
                 {user && (
-                  <Link className='btn btn-primary m-2' to={`/scores/${course.id}`}>
+                  <Link className='btn btn-dark m-2' to={`/scores/${course.id}`}>
                   View Your Scores For This Course
                   </Link>
                 )}

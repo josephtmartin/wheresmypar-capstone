@@ -10,17 +10,17 @@ export default function CourseCard({ course }) {
             <p className='card-text'>{course.formatted_address}</p>
             {/* <p>Rating: {course.rating}</p>
             <p>Total Ratings: {course.user_ratings_total}</p> */}
-            <Link className='btn btn-primary m-2' to={`/new-game/${course.id}`}>
+            <Link className='btn btn-dark m-2' to={`/new-game/${course.id}`}>
               Start A New Game
             </Link>
             <button
-              className='btn btn-success m-2'
+              className='btn btn-dark m-2'
               id={course.id}
               onClick={() => this.addToFavorites()}
             >
               Add To Favorites
             </button>
-            <Link className='btn btn-primary m-2' to={`/view-reviews/${course.id}`}>
+            <Link className='btn btn-dark m-2' to={`/view-reviews/${course.id}`}>
               View Reviews
             </Link>
           </div>

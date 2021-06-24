@@ -9,14 +9,14 @@ export default function ReviewCard({ review }) {
         <div className='card-body'>
         <Ratings
             rating={review.user_rating}
-            widgetRatedColors="gold"
-            widgetHoverColors="gold"
+            widgetRatedColors="grey"
+            widgetHoverColors="grey"
           >
-            <Ratings.Widget widgetRatedColor="gold"/>
-            <Ratings.Widget widgetRatedColor="gold"/>
-            <Ratings.Widget widgetRatedColor="gold"/>
-            <Ratings.Widget widgetRatedColor="gold"/>
-            <Ratings.Widget widgetRatedColor="gold"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
+            <Ratings.Widget widgetRatedColor="grey"/>
           </Ratings>
         </div>
       </div>
